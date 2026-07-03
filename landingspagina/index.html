@@ -78,20 +78,28 @@
   .boekwrap { display: flex; justify-content: center; perspective: 1200px; }
   .boek {
     width: 300px; height: 430px; border-radius: 6px 14px 14px 6px; position: relative;
-    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-300) 100%);
+    background:
+      linear-gradient(to top, #292738 27%, rgba(41,39,56,.92) 37%, rgba(41,39,56,.28) 58%, rgba(41,39,56,.05) 78%, rgba(41,39,56,0) 100%),
+      url(assets/roel-cover.jpg) top center / cover no-repeat,
+      var(--purple);
     box-shadow: -24px 28px 50px rgba(41,39,56,.32), inset 8px 0 12px rgba(0,0,0,.28);
     transform: rotateY(-14deg) rotateX(2deg);
     display: flex; flex-direction: column; justify-content: space-between;
-    padding: 34px 28px 26px; color: var(--creme);
+    padding: 26px 24px 22px; color: var(--creme); overflow: hidden;
   }
-  .boek::before { content:""; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: rgba(253,252,241,.14); }
-  .boek .b-kicker { font-family: var(--font-head); font-size: 12px; letter-spacing: 3px; color: var(--green-200); }
-  .boek .b-titel { font-family: var(--font-head); font-size: 40px; line-height: 1.08; }
+  .boek::before { content:""; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: rgba(253,252,241,.16); z-index: 2; }
+  .boek .b-top { display: flex; align-items: center; justify-content: space-between; }
+  .boek .b-kicker { font-family: var(--font-head); font-size: 12px; letter-spacing: 3px; color: var(--creme); opacity: .9; }
+  .boek .b-top svg { width: 22px; height: 22px; opacity: .95; }
+  .boek .b-onder { position: relative; }
+  .boek .b-dominos { display: flex; margin-bottom: 6px; }
+  .boek .b-dominos svg { width: 27px; height: 27px; }
+  .boek .b-titel { font-family: var(--font-head); font-size: 30px; line-height: 1.06; text-shadow: 0 2px 14px rgba(20,19,34,.5); }
   .boek .b-titel em { font-style: normal; color: var(--yellow); }
-  .boek .b-sub { font-size: 12.5px; line-height: 1.5; color: rgba(253,252,241,.75); margin-top: 12px; }
-  .boek .b-voet { display: flex; align-items: center; gap: 10px; }
-  .boek .b-voet svg { width: 30px; height: 30px; }
-  .boek .b-auteur { font-family: var(--font-head); font-size: 15px; letter-spacing: 1.5px; }
+  .boek .b-sub { font-size: 11px; line-height: 1.45; color: rgba(253,252,241,.78); margin-top: 6px; }
+  .boek .b-lijn { width: 44px; border-top: 2px solid var(--yellow); margin: 10px 0 8px; }
+  .boek .b-rol { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-200); }
+  .boek .b-auteur { font-family: var(--font-head); font-size: 16px; letter-spacing: 1.5px; margin-top: 2px; }
 
   /* ---------- herken je dit ---------- */
   .sectie-wit { background: #fff; border-top: 1px solid var(--creme-400); border-bottom: 1px solid var(--creme-400); }
@@ -191,8 +199,9 @@
     .hero h1 { font-size: 42px; }
     h2 { font-size: 29px; }
     .boekwrap { order: -1; }
-    .boek { width: 240px; height: 348px; padding: 26px 22px 20px; }
-    .boek .b-titel { font-size: 31px; }
+    .boek { width: 240px; height: 348px; padding: 20px 18px 16px; }
+    .boek .b-titel { font-size: 26px; }
+    .boek .b-dominos svg { width: 27px; height: 27px; }
     .stappen { grid-template-columns: 1fr 1fr; }
     .stats { grid-template-columns: 1fr 1fr; }
     .voorstel .boekwrap { display: none; }
@@ -265,15 +274,16 @@
 
       <div class="boekwrap">
         <div class="boek">
-          <div>
+          <div class="b-top">
             <div class="b-kicker">LEEFSTIJLLAB</div>
+            <svg fill="#def472"><use href="#domino"/></svg>
           </div>
-          <div>
+          <div class="b-onder">
+            <div class="b-dominos"><svg fill="#def472"><use href="#domino"/></svg></div>
             <div class="b-titel">Wat als het nu <em>wél</em> lukt?</div>
             <div class="b-sub">De methode achter blijvende leefstijlverandering</div>
-          </div>
-          <div class="b-voet">
-            <svg fill="#def472"><use href="#domino"/></svg>
+            <div class="b-lijn"></div>
+            <div class="b-rol">Gedragswetenschapper</div>
             <div class="b-auteur">DR. ROEL HERMANS</div>
           </div>
         </div>
@@ -481,13 +491,16 @@
       </div>
       <div class="boekwrap">
         <div class="boek" style="transform: rotateY(12deg) rotateX(2deg); box-shadow: 24px 28px 50px rgba(41,39,56,.25), inset 8px 0 12px rgba(0,0,0,.28);">
-          <div><div class="b-kicker">LEEFSTIJLLAB</div></div>
-          <div>
+          <div class="b-top">
+            <div class="b-kicker">LEEFSTIJLLAB</div>
+            <svg fill="#def472"><use href="#domino"/></svg>
+          </div>
+          <div class="b-onder">
+            <div class="b-dominos"><svg fill="#def472"><use href="#domino"/></svg></div>
             <div class="b-titel">Wat als het nu <em>wél</em> lukt?</div>
             <div class="b-sub">De methode achter blijvende leefstijlverandering</div>
-          </div>
-          <div class="b-voet">
-            <svg fill="#def472"><use href="#domino"/></svg>
+            <div class="b-lijn"></div>
+            <div class="b-rol">Gedragswetenschapper</div>
             <div class="b-auteur">DR. ROEL HERMANS</div>
           </div>
         </div>
