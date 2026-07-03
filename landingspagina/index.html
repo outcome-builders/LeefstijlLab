@@ -94,9 +94,19 @@
     writing-mode: vertical-rl; font-family: var(--font-head);
     font-size: 8.5px; letter-spacing: 2.5px; color: rgba(253,252,241,.6);
   }
-  .boek .b-onder { position: relative; text-align: center; }
-  .boek .b-dominos { position: absolute; top: 18px; left: 17px; right: 0; display: flex; justify-content: center; }
-  .boek .b-dominos svg { width: 30px; height: 30px; }
+  .boek .b-onder { position: relative; text-align: center; z-index: 3; }
+  .boek .b-watermerk {
+    position: absolute; left: -25%; top: -12%; width: 150%; height: 104.6%;
+    fill: #def472; opacity: .2; z-index: 1; pointer-events: none;
+    -webkit-mask-image:
+      radial-gradient(ellipse 24% 28% at 50% 43%, transparent 50%, black 70%),
+      linear-gradient(to bottom, black 62%, transparent 88%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      radial-gradient(ellipse 24% 28% at 50% 43%, transparent 50%, black 70%),
+      linear-gradient(to bottom, black 62%, transparent 88%);
+    mask-composite: intersect;
+  }
   .boek .b-titel { font-family: var(--font-head); font-size: 32px; letter-spacing: .5px; line-height: 1.08; text-shadow: 0 2px 14px rgba(20,19,34,.5); }
   .boek .b-titel em { font-style: normal; color: var(--yellow); }
   .boek .b-sub { font-size: 11px; line-height: 1.45; color: rgba(253,252,241,.78); margin-top: 6px; }
@@ -279,7 +289,7 @@
       <div class="boekwrap">
         <div class="boek">
           <div class="b-rug">LEEFSTIJLLAB</div>
-          <div class="b-dominos"><svg fill="#def472"><use href="#domino"/></svg></div>
+          <svg class="b-watermerk" viewBox="0 0 551.54 551.54" preserveAspectRatio="xMidYMid meet"><use href="#domino"/></svg>
           <div class="b-onder">
             <div class="b-titel">Wat als het<br>nu <em>wél</em> lukt?</div>
             <div class="b-sub">De methode achter blijvende leefstijlverandering</div>
@@ -493,7 +503,7 @@
       <div class="boekwrap">
         <div class="boek" style="transform: rotateY(12deg) rotateX(2deg); box-shadow: 24px 28px 50px rgba(41,39,56,.25), inset 8px 0 12px rgba(0,0,0,.28);">
           <div class="b-rug">LEEFSTIJLLAB</div>
-          <div class="b-dominos"><svg fill="#def472"><use href="#domino"/></svg></div>
+          <svg class="b-watermerk" viewBox="0 0 551.54 551.54" preserveAspectRatio="xMidYMid meet"><use href="#domino"/></svg>
           <div class="b-onder">
             <div class="b-titel">Wat als het<br>nu <em>wél</em> lukt?</div>
             <div class="b-sub">De methode achter blijvende leefstijlverandering</div>
