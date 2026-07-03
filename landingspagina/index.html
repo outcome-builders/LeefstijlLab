@@ -51,7 +51,7 @@
 
   /* ---------- hero ---------- */
   .hero { padding: 72px 0 80px; }
-  .hero .grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+  .hero .grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
   .hero h1 { font-family: var(--font-head); font-weight: 400; font-size: 58px; line-height: 1.05; margin-bottom: 18px; }
   .hero .sub { font-size: 17.5px; color: var(--purple-200); margin-bottom: 30px; max-width: 520px; }
 
@@ -85,39 +85,37 @@
     padding: 26px 24px 22px 32px; color: var(--creme); overflow: hidden;
   }
   .boek::before { content:""; position: absolute; left: 17px; top: 0; bottom: 0; width: 2px; background: rgba(253,252,241,.16); z-index: 2; }
-  .boek .b-rug {
+  .b-rug {
     position: absolute; left: 0; top: 0; bottom: 0; width: 17px; z-index: 4;
     display: flex; align-items: center; justify-content: center;
     writing-mode: vertical-rl; font-family: var(--font-head);
     font-size: 8.5px; letter-spacing: 2.5px; color: rgba(253,252,241,.6);
   }
-  .boek .b-onder { position: relative; text-align: center; z-index: 5; }
-  .boek .b-watermerk {
+  .b-onder { position: relative; text-align: center; z-index: 5; }
+  .b-watermerk {
     position: absolute; left: -25%; top: -12%; width: 150%; height: 104.6%;
     fill: #def472; opacity: .3; z-index: 1; pointer-events: none;
     -webkit-mask-image: linear-gradient(to bottom, black 58%, transparent 86%);
     mask-image: linear-gradient(to bottom, black 58%, transparent 86%);
   }
-  .boek .b-cutout { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; pointer-events: none; }
-  .boek .b-grad {
+  .b-cutout { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; pointer-events: none; }
+  .b-grad {
     position: absolute; inset: 0; z-index: 3; pointer-events: none;
     background: linear-gradient(to top, #292738 27%, rgba(41,39,56,.92) 37%, rgba(41,39,56,.28) 58%, rgba(41,39,56,.05) 78%, rgba(41,39,56,0) 100%);
   }
-  .boek .b-titel { font-family: var(--font-head); font-size: 32px; letter-spacing: .5px; line-height: 1.08; text-shadow: 0 2px 14px rgba(20,19,34,.5); }
-  .boek .b-titel em { font-style: normal; color: var(--yellow); }
-  .boek .b-sub { font-size: 11px; line-height: 1.45; color: rgba(253,252,241,.78); margin-top: 6px; }
-  .boek .b-lijn { width: 44px; border-top: 2px solid var(--yellow); margin: 11px auto 9px; }
-  .boek .b-rol { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-200); }
-  .boek .b-auteur { font-family: var(--font-head); font-size: 16px; letter-spacing: 1.5px; margin-top: 2px; }
+  .b-titel { font-family: var(--font-head); font-size: 32px; letter-spacing: .5px; line-height: 1.08; text-shadow: 0 2px 14px rgba(20,19,34,.5); }
+  .b-titel em { font-style: normal; color: var(--yellow); }
+  .b-sub { font-size: 11px; line-height: 1.45; color: rgba(253,252,241,.78); margin-top: 6px; }
+  .b-lijn { width: 44px; border-top: 2px solid var(--yellow); margin: 11px auto 9px; }
+  .b-rol { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-200); }
+  .b-auteur { font-family: var(--font-head); font-size: 16px; letter-spacing: 1.5px; margin-top: 2px; }
 
-  /* ---------- bladerboek ---------- */
-  .blader { text-align: center; }
-  .blader h2 { margin-bottom: 10px; }
-  .blader .intro-b { max-width: 560px; margin: 0 auto 36px; color: var(--purple-200); }
-  .flipwrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  /* ---------- bladerboek (in hero) ---------- */
+  .flip-hero { position: relative; }
   .flipboek {
-    position: relative; width: min(660px, 94vw); aspect-ratio: 660/450;
+    position: relative; width: min(520px, 92vw); aspect-ratio: 620/436;
     perspective: 2200px; container-type: inline-size;
+    margin-left: calc(100% - min(520px, 92vw));
   }
   .basis-rechts { position: absolute; right: 0; top: 0; width: 50%; height: 100%; }
   .vel {
@@ -135,13 +133,22 @@
   .zijde.achter { transform: rotateY(180deg); border-radius: 10px 0 0 10px; box-shadow: inset -12px 0 18px -13px rgba(41,39,56,.4), -4px 6px 22px rgba(41,39,56,.14); }
   .basis-rechts .zijde { position: absolute; border-radius: 0 10px 10px 0; box-shadow: inset 12px 0 18px -13px rgba(41,39,56,.4); }
 
-  .zijde.p-cover { background: var(--purple); color: var(--creme); border: none; align-items: center; justify-content: center; text-align: center; }
-  .p-cover .c-domino { width: 8cqw; height: 8cqw; fill: var(--yellow); margin-bottom: 2.6cqw; }
-  .p-cover .c-titel { font-family: var(--font-head); font-size: 4.4cqw; line-height: 1.1; }
-  .p-cover .c-titel em { font-style: normal; color: var(--yellow); }
-  .p-cover .c-sub { font-size: 1.7cqw; color: rgba(253,252,241,.75); margin-top: 1.6cqw; max-width: 80%; }
-  .p-cover .c-auteur { font-family: var(--font-head); font-size: 2.2cqw; letter-spacing: .3cqw; margin-top: 3.4cqw; }
-  .p-cover .c-hint { position: absolute; bottom: 3cqw; left: 0; right: 0; font-size: 1.6cqw; color: rgba(253,252,241,.55); }
+  .zijde.foto {
+    background: url(assets/roel-cover.jpg) top center / cover no-repeat, var(--purple);
+    color: var(--creme); border: none; justify-content: flex-end;
+    padding: 4.2cqw 3.9cqw 3.5cqw 5.2cqw;
+  }
+  .zijde.foto::after {
+    content: ""; position: absolute; left: 2.75cqw; top: 0; bottom: 0; width: 2px;
+    background: rgba(253,252,241,.16); z-index: 4;
+  }
+  .zijde.foto .b-titel { font-size: 5.2cqw; }
+  .zijde.foto .b-sub { font-size: 1.77cqw; }
+  .zijde.foto .b-lijn { width: 7cqw; margin: 1.8cqw auto 1.5cqw; }
+  .zijde.foto .b-rol { font-size: 1.45cqw; letter-spacing: .32cqw; }
+  .zijde.foto .b-auteur { font-size: 2.6cqw; }
+  .zijde.foto .b-rug { width: 2.75cqw; font-size: 1.37cqw; letter-spacing: .4cqw; }
+  .zijde.foto .c-hint { position: absolute; top: 2.6cqw; right: 3cqw; font-size: 1.5cqw; color: rgba(253,252,241,.6); z-index: 5; }
 
   .p-kick { font-family: var(--font-head); font-size: 1.9cqw; letter-spacing: .45cqw; color: var(--green-400); margin-bottom: 1.4cqw; }
   .p-titel { font-family: var(--font-head); font-size: 3.3cqw; line-height: 1.12; margin-bottom: 2cqw; }
@@ -273,10 +280,12 @@
     .hero h1 { font-size: 42px; }
     h2 { font-size: 29px; }
     .boekwrap { order: -1; }
+    .flip-hero { order: -1; }
+    .flipboek { margin-left: auto; margin-right: auto; }
     .boek { width: 240px; height: 348px; padding: 18px 14px 15px; }
-    .boek .b-titel { font-size: 25px; }
-    .boek .b-dominos svg { width: 23px; height: 23px; }
-    .boek .b-auteur { font-size: 14px; }
+    .b-titel { font-size: 25px; }
+    .b-dominos svg { width: 23px; height: 23px; }
+    .b-auteur { font-size: 14px; }
     .stappen { grid-template-columns: 1fr 1fr; }
     .stats { grid-template-columns: 1fr 1fr; }
     .voorstel .boekwrap { display: none; }
@@ -347,127 +356,109 @@
         </div>
       </div>
 
-      <div class="boekwrap">
-        <div class="boek">
-          <div class="b-rug">LEEFSTIJLLAB</div>
-          <svg class="b-watermerk" viewBox="0 0 551.54 551.54" preserveAspectRatio="xMidYMid meet"><use href="#domino"/></svg>
-          <img class="b-cutout" src="assets/roel-cutout.webp" alt="">
-          <div class="b-grad"></div>
-          <div class="b-onder">
-            <div class="b-titel">Wat als het<br>nu <em>wél</em> lukt?</div>
-            <div class="b-sub">De methode achter blijvende leefstijlverandering</div>
-            <div class="b-lijn"></div>
-            <div class="b-rol">Gedragswetenschapper</div>
-            <div class="b-auteur">DR. ROEL HERMANS</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="flip-hero">
+        <div class="flipboek" id="flipboek">
 
-<!-- ================= BLADERBOEK ================= -->
-<section class="blader">
-  <div class="wrap">
-    <span class="kicker">Neem alvast een kijkje</span>
-    <h2>Blader alvast door het boek</h2>
-    <p class="intro-b">Klik op de pagina's (of gebruik de pijlen) en proef alvast waar <em>Wat als het nu wél lukt?</em> over gaat.</p>
-
-    <div class="flipwrap">
-      <div class="flipboek" id="flipboek">
-
-        <!-- vaste rechterpagina (einde preview) -->
-        <div class="basis-rechts">
-          <div class="zijde">
-            <div class="p-kick">Gedrag verkennen</div>
-            <div class="p-titel">Jouw gedragsfoto</div>
-            <div class="p-tekst p-vervaagd">
-              <p>Voordat je ook maar iets verandert, breng je eerst in kaart hoe jouw leefstijlgedrag er nu écht uitziet. Niet zoals je denkt dat het eruitziet, maar zoals het zich dag in dag uit afspeelt: wat je doet, wanneer, waar en met wie.</p>
-              <p>Daarvoor gebruik je de zes pijlers van leefstijlgedrag: structuur, patroon, stijl, omgeving, mindset en regulatie. Samen vormen ze een scherp beeld van je huidige gedrag én van de kloof met het gedrag dat je graag zou willen…</p>
-            </div>
-            <div class="p-slot">
-              <div class="slot-titel">Hier stopt het inkijkje</div>
-              <p>Benieuwd hoe het verder gaat? Ontvang de volledige preview gratis in je inbox.</p>
-              <a class="btn" href="#aanmelden">Stuur mij de preview</a>
+          <!-- vaste rechterpagina (einde preview) -->
+          <div class="basis-rechts">
+            <div class="zijde">
+              <div class="p-kick">Gedrag verkennen</div>
+              <div class="p-titel">Jouw gedragsfoto</div>
+              <div class="p-tekst p-vervaagd">
+                <p>Voordat je ook maar iets verandert, breng je eerst in kaart hoe jouw leefstijlgedrag er nu écht uitziet. Niet zoals je denkt dat het eruitziet, maar zoals het zich dag in dag uit afspeelt: wat je doet, wanneer, waar en met wie.</p>
+                <p>Daarvoor gebruik je de zes pijlers van leefstijlgedrag: structuur, patroon, stijl, omgeving, mindset en regulatie…</p>
+              </div>
+              <div class="p-slot">
+                <div class="slot-titel">Hier stopt het inkijkje</div>
+                <p>Benieuwd hoe het verder gaat? Ontvang de volledige preview gratis in je inbox.</p>
+                <a class="btn" href="#aanmelden">Stuur mij de preview</a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- vel 3 -->
-        <div class="vel">
-          <div class="zijde voor">
-            <div class="p-kick">Wat als het nu wél lukt?</div>
-            <div class="p-titel">Stel je eens voor dat…</div>
-            <ul class="p-lijst">
-              <li><svg><use href="#check"/></svg>…je niet meer iedere keer opnieuw hoeft te beginnen.</li>
-              <li><svg><use href="#check"/></svg>…gezonde keuzes steeds vanzelfsprekender aanvoelen.</li>
-              <li><svg><use href="#check"/></svg>…je begrijpt waarom je doet wat je doet.</li>
-              <li><svg><use href="#check"/></svg>…je op moeilijke momenten weet hoe je jezelf kunt bijsturen.</li>
-            </ul>
-            <div class="p-nr rechts">7</div>
-          </div>
-          <div class="zijde achter">
-            <div class="p-kick">De methode</div>
-            <div class="p-titel">Vier dominostenen</div>
-            <div class="p-stenen">
-              <div class="p-steen"><div class="nr">01</div><div class="naam">Verkennen</div><p>Hoe ziet je gedrag er nu uit — en wat wil je?</p></div>
-              <div class="p-steen"><div class="nr">02</div><div class="naam">Begrijpen</div><p>Waardoor ontstaat jouw gedrag?</p></div>
-              <div class="p-steen"><div class="nr">03</div><div class="naam">Veranderen</div><p>Een gedragsplan op maat.</p></div>
-              <div class="p-steen"><div class="nr">04</div><div class="naam">Behouden</div><p>Volhouden, óók bij terugval.</p></div>
+          <!-- vel 3 -->
+          <div class="vel">
+            <div class="zijde voor">
+              <div class="p-kick">Wat als het nu wél lukt?</div>
+              <div class="p-titel">Stel je eens voor dat…</div>
+              <ul class="p-lijst">
+                <li><svg><use href="#check"/></svg>…je niet meer iedere keer opnieuw hoeft te beginnen.</li>
+                <li><svg><use href="#check"/></svg>…gezonde keuzes steeds vanzelfsprekender aanvoelen.</li>
+                <li><svg><use href="#check"/></svg>…je begrijpt waarom je doet wat je doet.</li>
+                <li><svg><use href="#check"/></svg>…je op moeilijke momenten weet hoe je jezelf kunt bijsturen.</li>
+              </ul>
+              <div class="p-nr rechts">7</div>
             </div>
-            <div class="p-nr">8</div>
-          </div>
-        </div>
-
-        <!-- vel 2 -->
-        <div class="vel">
-          <div class="zijde voor">
-            <div class="p-kick">Herken jij dit?</div>
-            <div class="p-titel">De riedel die zich blijft herhalen</div>
-            <div class="p-tekst">
-              <p>Goede voornemens. Actie. Terugval. Frustratie, schuldgevoel en <em>"het lukt me nooit"</em>. En na een tijdje… toch weer opnieuw beginnen.</p>
-              <p>Je bent niet de enige. Dit is precies hoe de meeste mensen proberen hun leefstijl te veranderen.</p>
+            <div class="zijde achter">
+              <div class="p-kick">De methode</div>
+              <div class="p-titel">Vier dominostenen</div>
+              <div class="p-stenen">
+                <div class="p-steen"><div class="nr">01</div><div class="naam">Verkennen</div><p>Hoe ziet je gedrag er nu uit — en wat wil je?</p></div>
+                <div class="p-steen"><div class="nr">02</div><div class="naam">Begrijpen</div><p>Waardoor ontstaat jouw gedrag?</p></div>
+                <div class="p-steen"><div class="nr">03</div><div class="naam">Veranderen</div><p>Een gedragsplan op maat.</p></div>
+                <div class="p-steen"><div class="nr">04</div><div class="naam">Behouden</div><p>Volhouden, óók bij terugval.</p></div>
+              </div>
+              <div class="p-nr">8</div>
             </div>
-            <div class="p-nr rechts">5</div>
           </div>
-          <div class="zijde achter">
-            <div class="p-kick">Waarom het zo vaak mislukt</div>
-            <div class="p-titel">Het ligt niet aan jou</div>
-            <ul class="p-lijst">
-              <li><svg><use href="#check"/></svg>We beginnen met veranderen — vóórdat we het probleem echt begrijpen.</li>
-              <li><svg><use href="#check"/></svg>We richten ons meteen op de oplossing.</li>
-              <li><svg><use href="#check"/></svg>We zoeken de oorzaak bij onszelf: te weinig discipline, niet het juiste moment.</li>
-            </ul>
-            <div class="p-nr">6</div>
-          </div>
-        </div>
 
-        <!-- vel 1 (cover) -->
-        <div class="vel">
-          <div class="zijde voor p-cover">
-            <svg class="c-domino"><use href="#domino"/></svg>
-            <div class="c-titel">Wat als het<br>nu <em>wél</em> lukt?</div>
-            <div class="c-sub">De methode achter blijvende leefstijlverandering</div>
-            <div class="c-auteur">DR. ROEL HERMANS</div>
-            <div class="c-hint">Klik om te bladeren →</div>
-          </div>
-          <div class="zijde achter">
-            <div class="p-kick">Voorwoord</div>
-            <div class="p-titel">De gedragsbril</div>
-            <div class="p-tekst">
-              <p>Dit boek leert je anders kijken naar leefstijl. Niet naar <em>wat</em> je doet, maar naar <em>waardoor</em> je het doet.</p>
-              <p>Gedrag is niet goed of fout — het is verklaarbaar. En zodra je dat ziet, verandert alles.</p>
+          <!-- vel 2 -->
+          <div class="vel">
+            <div class="zijde voor">
+              <div class="p-kick">Herken jij dit?</div>
+              <div class="p-titel">De riedel die zich blijft herhalen</div>
+              <div class="p-tekst">
+                <p>Goede voornemens. Actie. Terugval. Frustratie, schuldgevoel en <em>"het lukt me nooit"</em>. En na een tijdje… toch weer opnieuw beginnen.</p>
+                <p>Je bent niet de enige. Dit is precies hoe de meeste mensen proberen hun leefstijl te veranderen.</p>
+              </div>
+              <div class="p-nr rechts">5</div>
             </div>
-            <div class="p-nr">4</div>
+            <div class="zijde achter">
+              <div class="p-kick">Waarom het zo vaak mislukt</div>
+              <div class="p-titel">Het ligt niet aan jou</div>
+              <ul class="p-lijst">
+                <li><svg><use href="#check"/></svg>We beginnen met veranderen — vóórdat we het probleem echt begrijpen.</li>
+                <li><svg><use href="#check"/></svg>We richten ons meteen op de oplossing.</li>
+                <li><svg><use href="#check"/></svg>We zoeken de oorzaak bij onszelf: te weinig discipline, niet het juiste moment.</li>
+              </ul>
+              <div class="p-nr">6</div>
+            </div>
           </div>
+
+          <!-- vel 1 (cover) -->
+          <div class="vel">
+            <div class="zijde voor foto">
+              <div class="b-rug">LEEFSTIJLLAB</div>
+              <svg class="b-watermerk" viewBox="0 0 551.54 551.54" preserveAspectRatio="xMidYMid meet"><use href="#domino"/></svg>
+              <img class="b-cutout" src="assets/roel-cutout.webp" alt="">
+              <div class="b-grad"></div>
+              <div class="c-hint">Klik om te bladeren →</div>
+              <div class="b-onder">
+                <div class="b-titel">Wat als het<br>nu <em>wél</em> lukt?</div>
+                <div class="b-sub">De methode achter blijvende leefstijlverandering</div>
+                <div class="b-lijn"></div>
+                <div class="b-rol">Gedragswetenschapper</div>
+                <div class="b-auteur">DR. ROEL HERMANS</div>
+              </div>
+            </div>
+            <div class="zijde achter">
+              <div class="p-kick">Voorwoord</div>
+              <div class="p-titel">De gedragsbril</div>
+              <div class="p-tekst">
+                <p>Dit boek leert je anders kijken naar leefstijl. Niet naar <em>wat</em> je doet, maar naar <em>waardoor</em> je het doet.</p>
+                <p>Gedrag is niet goed of fout — het is verklaarbaar. En zodra je dat ziet, verandert alles.</p>
+              </div>
+              <div class="p-nr">4</div>
+            </div>
+          </div>
+
         </div>
 
-      </div>
-
-      <div class="flipnav">
-        <button class="fn" id="fn-terug" aria-label="Vorige pagina">‹</button>
-        <span class="fliphint">Klik op de pagina of gebruik de pijlen</span>
-        <button class="fn" id="fn-verder" aria-label="Volgende pagina">›</button>
+        <div class="flipnav" style="justify-content:center; margin-top:16px;">
+          <button class="fn" id="fn-terug" aria-label="Vorige pagina">‹</button>
+          <span class="fliphint">Klik op het boek om te bladeren</span>
+          <button class="fn" id="fn-verder" aria-label="Volgende pagina">›</button>
+        </div>
       </div>
     </div>
   </div>
