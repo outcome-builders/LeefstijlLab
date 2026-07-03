@@ -297,40 +297,43 @@
           </marker>
         </defs>
 
-        <!-- pijlen (met de klok mee) -->
+        <!-- doorlopende ring -->
+        <circle cx="380" cy="290" r="215" fill="none" stroke="#b3d9c5" stroke-width="2"/>
+
+        <!-- richtingspijlen op de ring (met de klok mee) -->
         <g stroke="#65937d" stroke-width="2.5" fill="none" marker-end="url(#cmk)">
-          <path d="M 478 82 Q 518 103 530 150"/>
-          <path d="M 560 216 Q 585 280 560 344"/>
-          <path d="M 530 406 Q 518 457 478 478"/>
-          <path d="M 282 478 Q 242 457 230 406"/>
-          <path d="M 200 344 Q 175 280 200 216"/>
-          <path d="M 230 150 Q 242 103 282 82"/>
+          <path d="M 487 104 A 215 215 0 0 1 524 130"/>
+          <path d="M 593 260 A 215 215 0 0 1 594 305"/>
+          <path d="M 529 445 A 215 215 0 0 1 500 468"/>
+          <path d="M 260 468 A 215 215 0 0 1 225 439"/>
+          <path d="M 166 312 A 215 215 0 0 1 166 268"/>
+          <path d="M 260 112 A 215 215 0 0 1 293 94"/>
         </g>
 
         <!-- midden -->
-        <use href="#domino" x="362" y="228" width="36" height="36" fill="#81b6a2"/>
-        <text x="380" y="292" text-anchor="middle" font-family="'Red Hat Display', Arial, sans-serif" font-size="14" font-style="italic" fill="#737d7d">…en zo herhaalt</text>
-        <text x="380" y="312" text-anchor="middle" font-family="'Red Hat Display', Arial, sans-serif" font-size="14" font-style="italic" fill="#737d7d">het zich, keer op keer</text>
+        <use href="#domino" x="362" y="222" width="36" height="36" fill="#81b6a2"/>
+        <text x="380" y="288" text-anchor="middle" font-family="'Red Hat Display', Arial, sans-serif" font-size="14" font-style="italic" fill="#737d7d">…en zo herhaalt</text>
+        <text x="380" y="308" text-anchor="middle" font-family="'Red Hat Display', Arial, sans-serif" font-size="14" font-style="italic" fill="#737d7d">het zich, keer op keer</text>
 
-        <!-- chips -->
+        <!-- chips op de ring -->
         <g font-family="'Red Hat Display', Arial, sans-serif" font-size="15" font-weight="700" fill="#292738">
-          <rect x="290" y="37" width="180" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
-          <text x="380" y="65" text-anchor="middle">Goede voornemens</text>
+          <rect x="290" y="52" width="180" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="380" y="80" text-anchor="middle">Goede voornemens</text>
 
-          <rect x="497" y="162" width="96" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
-          <text x="545" y="190" text-anchor="middle">Actie</text>
+          <rect x="518" y="160" width="96" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="566" y="188" text-anchor="middle">Actie</text>
 
-          <rect x="483" y="352" width="124" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
-          <text x="545" y="380" text-anchor="middle">Terugval</text>
+          <rect x="504" y="374" width="124" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="566" y="402" text-anchor="middle">Terugval</text>
 
-          <rect x="258" y="477" width="244" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
-          <text x="380" y="505" text-anchor="middle">Frustratie &amp; schuldgevoel</text>
+          <rect x="258" y="482" width="244" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="380" y="510" text-anchor="middle">Frustratie &amp; schuldgevoel</text>
 
-          <rect x="118" y="352" width="194" height="46" rx="23" fill="#f6fdc3" stroke="#cfe261" stroke-width="1.5"/>
-          <text x="215" y="380" text-anchor="middle">“Het lukt me nooit”</text>
+          <rect x="97" y="374" width="194" height="46" rx="23" fill="#f6fdc3" stroke="#cfe261" stroke-width="1.5"/>
+          <text x="194" y="402" text-anchor="middle">“Het lukt me nooit”</text>
 
-          <rect x="118" y="162" width="194" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
-          <text x="215" y="190" text-anchor="middle">Opnieuw beginnen…</text>
+          <rect x="97" y="160" width="194" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="194" y="188" text-anchor="middle">Opnieuw beginnen…</text>
         </g>
       </svg>
     </div>
