@@ -96,7 +96,9 @@
   /* ---------- herken je dit ---------- */
   .sectie-wit { background: #fff; border-top: 1px solid var(--creme-400); border-bottom: 1px solid var(--creme-400); }
   .herken .intro { max-width: 640px; margin-bottom: 40px; }
-  .cyclus { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+  .cyclus-wiel { display: flex; justify-content: center; margin: -6px 0 30px; }
+  .cyclus-wiel svg { width: 100%; max-width: 680px; height: auto; display: block; }
+  .cyclus { display: none; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
   .cyclus .chip {
     background: var(--creme-100); border: 1.5px solid var(--creme-400); border-radius: 30px;
     padding: 11px 20px; font-weight: 700; font-size: 14px; white-space: nowrap;
@@ -209,6 +211,10 @@
     .stats { grid-template-columns: 1fr 1fr; }
     .voorstel .boekwrap { display: none; }
   }
+  @media (max-width: 640px) {
+    .cyclus-wiel { display: none; }
+    .cyclus { display: flex; }
+  }
   @media (max-width: 520px) {
     .stappen { grid-template-columns: 1fr; }
     .hero h1 { font-size: 36px; }
@@ -296,6 +302,52 @@
     <span class="kicker">Herken je dit?</span>
     <h2>Elke keer opnieuw beginnen — en toch weer terugvallen</h2>
     <p class="intro">Gezonder eten, meer bewegen, beter slapen, minder drinken. Je weet wat je wilt. En toch loopt het steeds op dezelfde manier:</p>
+
+    <div class="cyclus-wiel">
+      <svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="De cyclus van goede voornemens tot opnieuw beginnen">
+        <defs>
+          <marker id="cmk" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#65937d"/>
+          </marker>
+        </defs>
+
+        <!-- pijlen (met de klok mee) -->
+        <g stroke="#65937d" stroke-width="2.5" fill="none" marker-end="url(#cmk)">
+          <path d="M 478 82 Q 518 103 530 150"/>
+          <path d="M 560 216 Q 585 280 560 344"/>
+          <path d="M 530 406 Q 518 457 478 478"/>
+          <path d="M 282 478 Q 242 457 230 406"/>
+          <path d="M 200 344 Q 175 280 200 216"/>
+          <path d="M 230 150 Q 242 103 282 82"/>
+        </g>
+
+        <!-- midden -->
+        <use href="#domino" x="362" y="228" width="36" height="36" fill="#81b6a2"/>
+        <text x="380" y="292" text-anchor="middle" font-family="'Red Hat Display', Arial, sans-serif" font-size="14" font-style="italic" fill="#737d7d">…en zo herhaalt</text>
+        <text x="380" y="312" text-anchor="middle" font-family="'Red Hat Display', Arial, sans-serif" font-size="14" font-style="italic" fill="#737d7d">het zich, keer op keer</text>
+
+        <!-- chips -->
+        <g font-family="'Red Hat Display', Arial, sans-serif" font-size="15" font-weight="700" fill="#292738">
+          <rect x="290" y="37" width="180" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="380" y="65" text-anchor="middle">Goede voornemens</text>
+
+          <rect x="497" y="162" width="96" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="545" y="190" text-anchor="middle">Actie</text>
+
+          <rect x="483" y="352" width="124" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="545" y="380" text-anchor="middle">Terugval</text>
+
+          <rect x="258" y="477" width="244" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="380" y="505" text-anchor="middle">Frustratie &amp; schuldgevoel</text>
+
+          <rect x="118" y="352" width="194" height="46" rx="23" fill="#f6fdc3" stroke="#cfe261" stroke-width="1.5"/>
+          <text x="215" y="380" text-anchor="middle">“Het lukt me nooit”</text>
+
+          <rect x="118" y="162" width="194" height="46" rx="23" fill="#fefdf7" stroke="#e8e7cd" stroke-width="1.5"/>
+          <text x="215" y="190" text-anchor="middle">Opnieuw beginnen…</text>
+        </g>
+      </svg>
+    </div>
 
     <div class="cyclus">
       <span class="chip">Goede voornemens</span><span class="c-pijl">→</span>
