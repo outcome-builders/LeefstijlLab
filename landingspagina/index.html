@@ -110,6 +110,71 @@
   .boek .b-rol { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-200); }
   .boek .b-auteur { font-family: var(--font-head); font-size: 16px; letter-spacing: 1.5px; margin-top: 2px; }
 
+  /* ---------- bladerboek ---------- */
+  .blader { text-align: center; }
+  .blader h2 { margin-bottom: 10px; }
+  .blader .intro-b { max-width: 560px; margin: 0 auto 36px; color: var(--purple-200); }
+  .flipwrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .flipboek {
+    position: relative; width: min(660px, 94vw); aspect-ratio: 660/450;
+    perspective: 2200px; container-type: inline-size;
+  }
+  .basis-rechts { position: absolute; right: 0; top: 0; width: 50%; height: 100%; }
+  .vel {
+    position: absolute; right: 0; top: 0; width: 50%; height: 100%;
+    transform-origin: left center; transform-style: preserve-3d;
+    transition: transform .85s cubic-bezier(.4,.1,.2,1); cursor: pointer;
+  }
+  .vel.om { transform: rotateY(-180deg); }
+  .zijde {
+    position: absolute; inset: 0; -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    background: #fffdf4; border: 1px solid var(--creme-400); overflow: hidden;
+    display: flex; flex-direction: column; padding: 5cqw 4.4cqw 3.6cqw; text-align: left;
+  }
+  .zijde.voor { border-radius: 0 10px 10px 0; box-shadow: inset 12px 0 18px -13px rgba(41,39,56,.4), 4px 6px 22px rgba(41,39,56,.14); }
+  .zijde.achter { transform: rotateY(180deg); border-radius: 10px 0 0 10px; box-shadow: inset -12px 0 18px -13px rgba(41,39,56,.4), -4px 6px 22px rgba(41,39,56,.14); }
+  .basis-rechts .zijde { position: absolute; border-radius: 0 10px 10px 0; box-shadow: inset 12px 0 18px -13px rgba(41,39,56,.4); }
+
+  .zijde.p-cover { background: var(--purple); color: var(--creme); border: none; align-items: center; justify-content: center; text-align: center; }
+  .p-cover .c-domino { width: 8cqw; height: 8cqw; fill: var(--yellow); margin-bottom: 2.6cqw; }
+  .p-cover .c-titel { font-family: var(--font-head); font-size: 4.4cqw; line-height: 1.1; }
+  .p-cover .c-titel em { font-style: normal; color: var(--yellow); }
+  .p-cover .c-sub { font-size: 1.7cqw; color: rgba(253,252,241,.75); margin-top: 1.6cqw; max-width: 80%; }
+  .p-cover .c-auteur { font-family: var(--font-head); font-size: 2.2cqw; letter-spacing: .3cqw; margin-top: 3.4cqw; }
+  .p-cover .c-hint { position: absolute; bottom: 3cqw; left: 0; right: 0; font-size: 1.6cqw; color: rgba(253,252,241,.55); }
+
+  .p-kick { font-family: var(--font-head); font-size: 1.9cqw; letter-spacing: .45cqw; color: var(--green-400); margin-bottom: 1.4cqw; }
+  .p-titel { font-family: var(--font-head); font-size: 3.3cqw; line-height: 1.12; margin-bottom: 2cqw; }
+  .p-tekst { font-size: 1.88cqw; line-height: 1.68; color: var(--purple-300); }
+  .p-tekst p { margin-bottom: 1.8cqw; line-height: 1.68; }
+  .p-tekst em { color: var(--green-500); font-style: italic; }
+  .p-lijst { list-style: none; margin-top: .6cqw; }
+  .p-lijst li { display: flex; gap: 1.4cqw; align-items: flex-start; font-size: 1.88cqw; line-height: 1.6; margin-bottom: 1.5cqw; color: var(--purple-300); }
+  .p-lijst li svg { flex: 0 0 auto; width: 2.4cqw; height: 2.4cqw; margin-top: .35cqw; }
+  .p-stenen { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8cqw; margin-top: 1cqw; }
+  .p-steen { border: 1px solid var(--creme-400); background: var(--creme-100); border-radius: 1.4cqw; padding: 1.8cqw; }
+  .p-steen .nr { font-family: var(--font-head); font-size: 1.7cqw; color: var(--green-400); letter-spacing: .3cqw; }
+  .p-steen .naam { font-family: var(--font-head); font-size: 2.4cqw; margin: .3cqw 0 .5cqw; }
+  .p-steen p { font-size: 1.55cqw; line-height: 1.5; color: var(--purple-200); }
+  .p-nr { margin-top: auto; padding-top: 1.6cqw; font-size: 1.55cqw; color: var(--grijs-700); }
+  .p-nr.rechts { text-align: right; }
+
+  .p-vervaagd { filter: blur(.55cqw); user-select: none; pointer-events: none; }
+  .p-slot { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.8cqw; padding: 4cqw; text-align: center; background: linear-gradient(to bottom, rgba(255,253,244,.2), rgba(255,253,244,.92) 55%); }
+  .p-slot .slot-titel { font-family: var(--font-head); font-size: 2.9cqw; }
+  .p-slot p { font-size: 1.8cqw; color: var(--purple-200); max-width: 88%; }
+  .p-slot .btn { font-size: 1.9cqw; padding: 1.8cqw 3.4cqw; border-radius: 1.8cqw; }
+
+  .flipnav { display: flex; align-items: center; gap: 14px; }
+  .fn {
+    width: 46px; height: 46px; border-radius: 50%; border: none; cursor: pointer;
+    background: var(--purple); color: var(--creme); font-size: 19px; line-height: 1;
+    transition: opacity .2s ease, transform .15s ease;
+  }
+  .fn:hover { transform: translateY(-2px); }
+  .fn:disabled { opacity: .25; cursor: default; transform: none; }
+  .fliphint { font-size: 12.5px; color: var(--grijs-700); }
+
   /* ---------- herken je dit ---------- */
   .sectie-wit { background: #fff; border-top: 1px solid var(--creme-400); border-bottom: 1px solid var(--creme-400); }
   .herken .intro { max-width: 640px; margin-bottom: 40px; }
@@ -296,6 +361,113 @@
             <div class="b-auteur">DR. ROEL HERMANS</div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLADERBOEK ================= -->
+<section class="blader">
+  <div class="wrap">
+    <span class="kicker">Neem alvast een kijkje</span>
+    <h2>Blader alvast door het boek</h2>
+    <p class="intro-b">Klik op de pagina's (of gebruik de pijlen) en proef alvast waar <em>Wat als het nu wél lukt?</em> over gaat.</p>
+
+    <div class="flipwrap">
+      <div class="flipboek" id="flipboek">
+
+        <!-- vaste rechterpagina (einde preview) -->
+        <div class="basis-rechts">
+          <div class="zijde">
+            <div class="p-kick">Gedrag verkennen</div>
+            <div class="p-titel">Jouw gedragsfoto</div>
+            <div class="p-tekst p-vervaagd">
+              <p>Voordat je ook maar iets verandert, breng je eerst in kaart hoe jouw leefstijlgedrag er nu écht uitziet. Niet zoals je denkt dat het eruitziet, maar zoals het zich dag in dag uit afspeelt: wat je doet, wanneer, waar en met wie.</p>
+              <p>Daarvoor gebruik je de zes pijlers van leefstijlgedrag: structuur, patroon, stijl, omgeving, mindset en regulatie. Samen vormen ze een scherp beeld van je huidige gedrag én van de kloof met het gedrag dat je graag zou willen…</p>
+            </div>
+            <div class="p-slot">
+              <div class="slot-titel">Hier stopt het inkijkje</div>
+              <p>Benieuwd hoe het verder gaat? Ontvang de volledige preview gratis in je inbox.</p>
+              <a class="btn" href="#aanmelden">Stuur mij de preview</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- vel 3 -->
+        <div class="vel">
+          <div class="zijde voor">
+            <div class="p-kick">Wat als het nu wél lukt?</div>
+            <div class="p-titel">Stel je eens voor dat…</div>
+            <ul class="p-lijst">
+              <li><svg><use href="#check"/></svg>…je niet meer iedere keer opnieuw hoeft te beginnen.</li>
+              <li><svg><use href="#check"/></svg>…gezonde keuzes steeds vanzelfsprekender aanvoelen.</li>
+              <li><svg><use href="#check"/></svg>…je begrijpt waarom je doet wat je doet.</li>
+              <li><svg><use href="#check"/></svg>…je op moeilijke momenten weet hoe je jezelf kunt bijsturen.</li>
+            </ul>
+            <div class="p-nr rechts">7</div>
+          </div>
+          <div class="zijde achter">
+            <div class="p-kick">De methode</div>
+            <div class="p-titel">Vier dominostenen</div>
+            <div class="p-stenen">
+              <div class="p-steen"><div class="nr">01</div><div class="naam">Verkennen</div><p>Hoe ziet je gedrag er nu uit — en wat wil je?</p></div>
+              <div class="p-steen"><div class="nr">02</div><div class="naam">Begrijpen</div><p>Waardoor ontstaat jouw gedrag?</p></div>
+              <div class="p-steen"><div class="nr">03</div><div class="naam">Veranderen</div><p>Een gedragsplan op maat.</p></div>
+              <div class="p-steen"><div class="nr">04</div><div class="naam">Behouden</div><p>Volhouden, óók bij terugval.</p></div>
+            </div>
+            <div class="p-nr">8</div>
+          </div>
+        </div>
+
+        <!-- vel 2 -->
+        <div class="vel">
+          <div class="zijde voor">
+            <div class="p-kick">Herken jij dit?</div>
+            <div class="p-titel">De riedel die zich blijft herhalen</div>
+            <div class="p-tekst">
+              <p>Goede voornemens. Actie. Terugval. Frustratie, schuldgevoel en <em>"het lukt me nooit"</em>. En na een tijdje… toch weer opnieuw beginnen.</p>
+              <p>Je bent niet de enige. Dit is precies hoe de meeste mensen proberen hun leefstijl te veranderen.</p>
+            </div>
+            <div class="p-nr rechts">5</div>
+          </div>
+          <div class="zijde achter">
+            <div class="p-kick">Waarom het zo vaak mislukt</div>
+            <div class="p-titel">Het ligt niet aan jou</div>
+            <ul class="p-lijst">
+              <li><svg><use href="#check"/></svg>We beginnen met veranderen — vóórdat we het probleem echt begrijpen.</li>
+              <li><svg><use href="#check"/></svg>We richten ons meteen op de oplossing.</li>
+              <li><svg><use href="#check"/></svg>We zoeken de oorzaak bij onszelf: te weinig discipline, niet het juiste moment.</li>
+            </ul>
+            <div class="p-nr">6</div>
+          </div>
+        </div>
+
+        <!-- vel 1 (cover) -->
+        <div class="vel">
+          <div class="zijde voor p-cover">
+            <svg class="c-domino"><use href="#domino"/></svg>
+            <div class="c-titel">Wat als het<br>nu <em>wél</em> lukt?</div>
+            <div class="c-sub">De methode achter blijvende leefstijlverandering</div>
+            <div class="c-auteur">DR. ROEL HERMANS</div>
+            <div class="c-hint">Klik om te bladeren →</div>
+          </div>
+          <div class="zijde achter">
+            <div class="p-kick">Voorwoord</div>
+            <div class="p-titel">De gedragsbril</div>
+            <div class="p-tekst">
+              <p>Dit boek leert je anders kijken naar leefstijl. Niet naar <em>wat</em> je doet, maar naar <em>waardoor</em> je het doet.</p>
+              <p>Gedrag is niet goed of fout — het is verklaarbaar. En zodra je dat ziet, verandert alles.</p>
+            </div>
+            <div class="p-nr">4</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flipnav">
+        <button class="fn" id="fn-terug" aria-label="Vorige pagina">‹</button>
+        <span class="fliphint">Klik op de pagina of gebruik de pijlen</span>
+        <button class="fn" id="fn-verder" aria-label="Volgende pagina">›</button>
       </div>
     </div>
   </div>
@@ -611,6 +783,41 @@
       try { localStorage.setItem("ll_aangemeld", "1"); } catch(e) {}
     });
   });
+
+  // ====== BLADERBOEK ======
+  const vellen = [...document.querySelectorAll('#flipboek .vel')].reverse(); // cover eerst
+  let omgeslagen = 0;
+  const fnTerug = document.getElementById('fn-terug');
+  const fnVerder = document.getElementById('fn-verder');
+  function zetZ() {
+    vellen.forEach((v, i) => { v.style.zIndex = v.classList.contains('om') ? 10 + i : 20 - i; });
+  }
+  function zetKnoppen() {
+    fnTerug.disabled = omgeslagen === 0;
+    fnVerder.disabled = omgeslagen === vellen.length;
+  }
+  function bladerVerder() {
+    if (omgeslagen >= vellen.length) return;
+    const v = vellen[omgeslagen];
+    v.classList.add('om'); v.style.zIndex = 40;
+    setTimeout(zetZ, 880);
+    omgeslagen++; zetKnoppen();
+  }
+  function bladerTerug() {
+    if (omgeslagen <= 0) return;
+    omgeslagen--;
+    const v = vellen[omgeslagen];
+    v.classList.remove('om'); v.style.zIndex = 40;
+    setTimeout(zetZ, 880);
+    zetKnoppen();
+  }
+  vellen.forEach(v => v.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    v.classList.contains('om') ? bladerTerug() : bladerVerder();
+  }));
+  fnVerder.addEventListener('click', bladerVerder);
+  fnTerug.addEventListener('click', bladerTerug);
+  zetZ(); zetKnoppen();
 
   // ====== POPUP (één keer, na 55% scroll of 20 sec) ======
   let popupGetoond = false;
