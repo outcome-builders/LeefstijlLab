@@ -70,6 +70,8 @@
   .veld input:focus { border-color: var(--green); }
   .veld input::placeholder { color: var(--purple-100); }
   form .btn { width: 100%; margin-top: 4px; }
+  .hero-cta { max-width: 440px; }
+  .btn.groot { display: block; width: 100%; font-size: 18px; padding: 19px 38px; text-align: center; box-shadow: 0 6px 20px rgba(185,198,70,.35); }
   .micro { font-size: 12px; color: var(--grijs-700); margin-top: 12px; line-height: 1.55; }
   .succes { display: none; background: var(--green-100); border: 1.5px solid var(--green-200); border-radius: 12px; padding: 18px; font-size: 14.5px; line-height: 1.6; }
   .succes strong { color: var(--green-500); }
@@ -299,7 +301,11 @@
   }
   .popup .p-kicker { font-family: var(--font-head); font-size: 13px; letter-spacing: 3px; color: var(--green-400); }
   .popup h3 { font-family: var(--font-head); font-weight: 400; font-size: 27px; margin: 6px 0 8px; }
-  .popup .p-sub { font-size: 14px; color: var(--purple-200); margin-bottom: 18px; line-height: 1.55; }
+  .popup .p-sub { font-size: 14px; color: var(--purple-200); margin-bottom: 14px; line-height: 1.55; }
+  .progres { margin-bottom: 18px; }
+  .progres-info { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: var(--green-500); margin-bottom: 6px; }
+  .progres-balk { height: 8px; background: var(--creme-300); border-radius: 6px; overflow: hidden; }
+  .progres-vul { height: 100%; background: var(--yellow); border-radius: 6px; transition: width .6s ease; }
 
   /* ---------- responsive ---------- */
   @media (max-width: 900px) {
@@ -374,15 +380,9 @@
         <h1>Wat als het<br>nu <span class="marker">wél</span> lukt?</h1>
         <p class="sub">Ontdek de methode achter blijvende leefstijlverandering. Geen goede voornemens die stranden, maar een wetenschappelijk onderbouwde aanpak in vier stappen: verkennen, begrijpen, veranderen en behouden.</p>
 
-        <div class="formcard" id="aanmelden">
-          <div class="formtitel">Ontvang als eerste een gratis preview van het boek <span class="dot">●</span></div>
-          <form class="preview-form" novalidate>
-            <div class="veld"><input type="text" name="voornaam" placeholder="Je voornaam" required autocomplete="given-name"></div>
-            <div class="veld"><input type="email" name="email" placeholder="Je e-mailadres" required autocomplete="email"></div>
-            <button class="btn" type="submit">Stuur mij de gratis preview</button>
-          </form>
-          <div class="succes"><strong>Gelukt!</strong> Check je inbox — de preview komt eraan. Jij hoort het ook als eerste zodra de voorverkoop start.</div>
-          <p class="micro">Je ontvangt de preview per e-mail én je hoort als eerste wanneer de voorverkoop start. Geen spam, uitschrijven kan altijd.</p>
+        <div class="hero-cta" id="aanmelden">
+          <a class="btn groot" href="#aanmelden">Ja, ik wil de gratis preview</a>
+          <p class="micro">Gratis · je hoort als eerste wanneer de voorverkoop start · geen spam</p>
         </div>
       </div>
 
@@ -768,6 +768,10 @@
     <div class="p-kicker">Gratis preview</div>
     <h3>Wil je de gratis preview?</h3>
     <p class="p-sub">Laat je voornaam en e-mailadres achter en ontvang als eerste een preview van <em>Wat als het nu wél lukt?</em></p>
+    <div class="progres">
+      <div class="progres-info"><span>Je bent er bijna</span><span>80%</span></div>
+      <div class="progres-balk"><div class="progres-vul" style="width:80%"></div></div>
+    </div>
     <form class="preview-form" novalidate>
       <div class="veld"><input type="text" name="voornaam" placeholder="Je voornaam" required></div>
       <div class="veld"><input type="email" name="email" placeholder="Je e-mailadres" required></div>
@@ -803,6 +807,13 @@
       form.style.display = "none";
       const s = form.parentElement.querySelector(".succes");
       if (s) s.style.display = "block";
+      const pop = form.closest(".popup");
+      if (pop) {
+        const vul = pop.querySelector(".progres-vul");
+        if (vul) vul.style.width = "100%";
+        const inf = pop.querySelectorAll(".progres-info span");
+        if (inf.length === 2) { inf[0].textContent = "Gelukt!"; inf[1].textContent = "100%"; }
+      }
       try { localStorage.setItem("ll_aangemeld", "1"); } catch(e) {}
       const sb = document.getElementById("stickybalk"); if (sb) sb.classList.remove("zichtbaar");
     });
