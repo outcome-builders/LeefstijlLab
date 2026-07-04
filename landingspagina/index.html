@@ -221,6 +221,7 @@
   .stappen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .stapkaart {
     background: #fff; border: 1.5px solid var(--creme-400); border-radius: 16px; padding: 24px 22px;
+    display: flex; flex-direction: column;
   }
   .stapkaart .nr {
     width: 38px; height: 38px; border-radius: 50%; background: var(--green);
@@ -229,7 +230,7 @@
   }
   .stapkaart h3 { font-family: var(--font-head); font-weight: 400; font-size: 21px; margin-bottom: 8px; }
   .stapkaart p { font-size: 13.5px; color: var(--purple-200); line-height: 1.6; }
-  .stapkaart .levert { margin-top: 12px; font-size: 12px; font-weight: 700; color: var(--green-500); }
+  .stapkaart .levert { margin-top: auto; padding-top: 14px; font-size: 12px; font-weight: 700; color: var(--green-500); }
 
   /* ---------- stel je voor ---------- */
   .voorstel { background: var(--green-100); border-top: 1px solid var(--green-200); border-bottom: 1px solid var(--green-200); }
