@@ -853,9 +853,12 @@
     try { localStorage.setItem("ll_popup", "1"); } catch(e) {}
   }
   function sluitPopup() { document.getElementById("popup").classList.remove("zichtbaar"); }
-  document.getElementById("open-popup").addEventListener("click", (e) => {
-    e.preventDefault();
-    document.getElementById("popup").classList.add("zichtbaar");
+  // alle preview-knoppen openen de popup
+  document.querySelectorAll('a[href="#aanmelden"]').forEach(a => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.getElementById("popup").classList.add("zichtbaar");
+    });
   });
 
   // ====== STICKY BALK ======
