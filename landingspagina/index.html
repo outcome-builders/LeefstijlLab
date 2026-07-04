@@ -874,6 +874,19 @@
   }
   window.addEventListener("scroll", balkCheck, { passive: true });
   balkCheck();
+
+  // ====== EXIT-INTENT POPUP ======
+  let exitGetoond = false;
+  document.addEventListener("mouseout", (e) => {
+    if (exitGetoond || e.clientY > 24 || e.relatedTarget) return;
+    try { if (localStorage.getItem("ll_aangemeld") || localStorage.getItem("ll_exit")) return; } catch(err) {}
+    if (document.getElementById("popup").classList.contains("zichtbaar")) return;
+    exitGetoond = true;
+    const kk = document.querySelector("#popup .p-kicker");
+    if (kk) kk.textContent = "Voordat je gaat…";
+    document.getElementById("popup").classList.add("zichtbaar");
+    try { localStorage.setItem("ll_exit", "1"); } catch(err) {}
+  });
   window.addEventListener("scroll", () => {
     const d = document.documentElement;
     if (window.scrollY / (d.scrollHeight - d.clientHeight) > 0.55) toonPopup();
