@@ -263,6 +263,23 @@
   footer .sub { font-size: 12px; color: var(--grijs-700); margin-top: 8px; }
   footer .sub a { color: var(--green-500); text-decoration: none; }
 
+  /* ---------- sticky balk ---------- */
+  .stickybalk {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+    background: var(--purple); color: var(--creme);
+    display: flex; align-items: center; justify-content: center; gap: 18px;
+    padding: 12px 20px; box-shadow: 0 -6px 24px rgba(41,39,56,.28);
+    transform: translateY(110%); transition: transform .45s cubic-bezier(.4,.1,.2,1);
+  }
+  .stickybalk.zichtbaar { transform: translateY(0); }
+  .stickybalk .s-tekst { font-size: 14.5px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .stickybalk .s-tekst svg { width: 20px; height: 20px; flex: 0 0 auto; }
+  @media (max-width: 640px) {
+    .stickybalk { gap: 12px; padding: 10px 14px; }
+    .stickybalk .s-lang { display: none; }
+    .stickybalk .s-tekst { font-size: 13px; }
+  }
+
   /* ---------- popup ---------- */
   .popup-achter {
     display: none; position: fixed; inset: 0; background: rgba(41,39,56,.45); z-index: 100;
@@ -741,6 +758,12 @@
   <p class="sub">Een boek van <a href="https://www.leefstijllab.nl">LeefstijlLab</a> · © 2026</p>
 </footer>
 
+<!-- ================= STICKY BALK ================= -->
+<div class="stickybalk" id="stickybalk">
+  <div class="s-tekst"><svg fill="#def472"><use href="#domino"/></svg><span>Ontvang een gratis preview van het boek<span class="s-lang"> — en hoor als eerste wanneer de voorverkoop start</span></span></div>
+  <button class="btn klein" id="sticky-cta">Stuur mij de preview</button>
+</div>
+
 <!-- ================= POPUP ================= -->
 <div class="popup-achter" id="popup">
   <div class="popup">
@@ -784,6 +807,7 @@
       const s = form.parentElement.querySelector(".succes");
       if (s) s.style.display = "block";
       try { localStorage.setItem("ll_aangemeld", "1"); } catch(e) {}
+      const sb = document.getElementById("stickybalk"); if (sb) sb.classList.remove("zichtbaar");
     });
   });
 
@@ -836,6 +860,19 @@
     e.preventDefault();
     document.getElementById("popup").classList.add("zichtbaar");
   });
+
+  // ====== STICKY BALK ======
+  const balk = document.getElementById("stickybalk");
+  document.getElementById("sticky-cta").addEventListener("click", () => {
+    document.getElementById("popup").classList.add("zichtbaar");
+  });
+  function balkCheck() {
+    let aangemeld = false;
+    try { aangemeld = !!localStorage.getItem("ll_aangemeld"); } catch(e) {}
+    balk.classList.toggle("zichtbaar", !aangemeld && window.scrollY > 600);
+  }
+  window.addEventListener("scroll", balkCheck, { passive: true });
+  balkCheck();
   window.addEventListener("scroll", () => {
     const d = document.documentElement;
     if (window.scrollY / (d.scrollHeight - d.clientHeight) > 0.55) toonPopup();
