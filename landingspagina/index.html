@@ -198,9 +198,10 @@
 
   /* ---------- herken je dit ---------- */
   .sectie-wit { background: #fff; border-top: 1px solid var(--creme-400); border-bottom: 1px solid var(--creme-400); }
-  .herken .intro { max-width: 640px; margin-bottom: 40px; }
-  .cyclus-wiel { display: flex; justify-content: center; margin: -6px 0 30px; }
-  .cyclus-wiel svg { width: 100%; max-width: 680px; height: auto; display: block; }
+  .herken-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
+  .herken .intro { margin-bottom: 16px; color: var(--purple-200); }
+  .cyclus-wiel { display: flex; justify-content: center; margin: 0; }
+  .cyclus-wiel svg { width: 100%; max-width: 580px; height: auto; display: block; }
   .cyclus { display: none; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
   .cyclus .chip {
     background: var(--creme-100); border: 1.5px solid var(--creme-400); border-radius: 30px;
@@ -208,7 +209,7 @@
   }
   .cyclus .c-pijl { color: var(--green-400); font-size: 18px; font-weight: 700; }
   .cyclus .chip.rood { background: var(--yellow-100); border-color: var(--yellow-400); }
-  .herken .uitleg { max-width: 640px; }
+
   .herken .uitleg strong { color: var(--green-500); }
 
   /* ---------- nieuwe kijk (donker) ---------- */
@@ -318,6 +319,8 @@
     h2 { font-size: 29px; }
     .boekwrap { order: -1; }
     .flip-hero { order: -1; }
+    .herken-grid { grid-template-columns: 1fr; gap: 28px; }
+    .herken-visual { order: 1; }
     .flipboek { margin-left: auto; margin-right: auto; transform: scale(1); }
     .flip-hero .flipnav { margin: 14px auto 0; transform: none; }
     .boek { width: 240px; height: 348px; padding: 18px 14px 15px; }
@@ -497,10 +500,8 @@
 <!-- ================= HERKEN JE DIT ================= -->
 <section class="sectie-wit herken">
   <div class="wrap">
-    <span class="kicker">Herken je dit?</span>
-    <h2>Elke keer opnieuw beginnen en toch weer terugvallen</h2>
-    <p class="intro">Gezonder eten, meer bewegen, beter slapen, minder drinken. Je weet wat je wilt. En toch loopt het steeds op dezelfde manier:</p>
-
+    <div class="herken-grid">
+      <div class="herken-visual">
     <div class="cyclus-wiel">
       <svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="De cyclus van goede voornemens tot opnieuw beginnen">
         <defs>
@@ -559,7 +560,14 @@
       <span class="chip">Opnieuw beginnen…</span>
     </div>
 
-    <p class="uitleg">Je bent niet de enige. Dit is precies hoe de meeste mensen hun leefstijl proberen te veranderen. En het ligt niet aan te weinig discipline of motivatie. <strong>Het mislukt omdat we beginnen met veranderen, vóórdat we ons eigen gedrag echt begrijpen.</strong></p>
+      </div>
+      <div class="herken-tekst">
+        <span class="kicker">Herken je dit?</span>
+        <h2>Elke keer opnieuw beginnen en toch weer terugvallen</h2>
+        <p class="intro">Gezonder eten, meer bewegen, beter slapen, minder drinken. Je weet wat je wilt. En toch loopt het steeds op dezelfde manier.</p>
+        <p class="uitleg">Je bent niet de enige. Dit is precies hoe de meeste mensen hun leefstijl proberen te veranderen. En het ligt niet aan te weinig discipline of motivatie. <strong>Het mislukt omdat we beginnen met veranderen, vóórdat we ons eigen gedrag echt begrijpen.</strong></p>
+      </div>
+    </div>
   </div>
 </section>
 
