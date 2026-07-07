@@ -83,7 +83,7 @@
   .ritmekaart li svg { flex: 0 0 auto; width: 17px; height: 17px; margin-top: 2px; }
 
   /* prijs */
-  .prijsgrid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: start; }
+  .prijsgrid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: stretch; }
   .prijs { background: #fff; border: 2.5px solid var(--green); border-radius: 20px; padding: 32px; box-shadow: 0 10px 32px rgba(81,122,99,.14); position: relative; }
   .prijs .badge { position: absolute; top: -14px; left: 32px; background: var(--purple); color: var(--yellow); font-family: var(--font-head); font-size: 12.5px; letter-spacing: 2px; padding: 5px 16px 4px; border-radius: 20px; }
   .prijs .naam { font-family: var(--font-head); font-size: 14px; letter-spacing: 3px; color: var(--green-400); }
@@ -106,6 +106,7 @@
   .prijs .btn { width: 100%; }
   .prijs .micro { font-size: 12px; color: var(--grijs-700); margin-top: 12px; text-align: center; line-height: 1.5; }
   .naast { display: flex; flex-direction: column; gap: 16px; }
+  .naast .infoblok { flex: 1; }
   .infoblok { background: var(--creme-100); border: 1.5px solid var(--creme-400); border-radius: 16px; padding: 22px 24px; }
   .infoblok h3 { font-size: 18px; margin-bottom: 6px; }
   .infoblok p { font-size: 13.5px; color: var(--purple-200); }
